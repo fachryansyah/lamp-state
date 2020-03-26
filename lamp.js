@@ -1,15 +1,13 @@
 const keypress = require('keypress')
 keypress(process.stdin)
 
-const totalOfLamp = 10 // change this
-let totalClickOfSwitch = 1 // change this
-
-let lightsOn = 0
+const totalOfLamp = 10
+let totalClickOfSwitch = 1
 
 let lights = []
 
 const switchLamp = () => {
-  if (totalOfLamp < 1) { return console.log(`Amount of lamp can't be ${totalOfLamp}`) }
+  if (totalOfLamp < 1) { return console.log(`Jumlah lampu harus lebih dari ${totalOfLamp}`) }
 
   // initial lamp
   if (lights.length < totalOfLamp) {
@@ -22,6 +20,7 @@ const switchLamp = () => {
     }
   }
 
+  console.log("========================================")
   console.log("Pencet sepasi untuk mengaktifkan saklar")
   console.log(`Pencetan ke : ${totalClickOfSwitch}`)
 
@@ -35,7 +34,6 @@ const switchLamp = () => {
   console.log(`Total lampu hidup: ${lights.filter(i => {return i == 'on'}).length}`)
 
   totalClickOfSwitch += 1
-  // console.log(lights)
 }
 
 process.stdin.on('keypress', function (ch, key) {
